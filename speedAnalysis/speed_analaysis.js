@@ -15,14 +15,15 @@ function endTest() {
 
     document.getElementById("userInput").readOnly = true;
 
-    var timeElapsed = (endTime - startTime)/1000;
+    var timeElapsed = (endTime - startTime) / 1000;
+    console.log(timeElapsed);
     var userTypedText = document.getElementById("userInput").value;
 
     var typedWords = userTypedText.split(/\s+/).filter(function(word) {
         return word!=="";}).length
     
     var wpm = 0;
-    if( timeElapsed !== 0 && isNaN(typedWords)){
+    if( timeElapsed !== 0 && !isNaN(typedWords)){
         wpm = Math.round((typedWords / timeElapsed) * 60);
         console.log(wpm)
     }
